@@ -1,0 +1,48 @@
+% UTS Beamer Preamble — Standard Template
+% Compile with pdfLaTeX only (do NOT use XeLaTeX or LuaLaTeX)
+%
+% Usage: \input{uts-beamer-preamble.tex} in your main .tex file,
+% or copy these settings into your document preamble.
+
+\documentclass[aspectratio=169]{beamer}
+
+% Theme
+\usetheme{Madrid}
+\usecolortheme{whale}
+
+% Fonts — pdfLaTeX compatible (no fontspec)
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% Core packages
+\usepackage{booktabs}       % Professional tables
+\usepackage{graphicx}       % Images
+\usepackage{hyperref}       % Clickable links
+\usepackage{amsmath}        % Math
+\usepackage{amssymb}        % Math symbols
+\usepackage{appendixnumberbeamer}  % Appendix slide numbering
+
+% Optional but useful
+\usepackage{tikz}           % Diagrams
+\usepackage{pgfplots}       % Plots in LaTeX
+\pgfplotsset{compat=1.18}
+\usepackage{dcolumn}        % Decimal-aligned columns in tables
+\usepackage{multirow}       % Multi-row table cells
+\usepackage{caption}        % Caption customisation
+\usepackage{subcaption}     % Sub-figures
+
+% Enumeration style for MCQs
+\usepackage{enumerate}
+
+% Remove navigation symbols (they clutter slides)
+\setbeamertemplate{navigation symbols}{}
+
+% Show slide numbers
+\setbeamertemplate{footline}[frame number]
+
+% Metadata — override these in your main document
+\title{Presentation Title}
+\subtitle{Subtitle if needed}
+\author{Author Name}
+\institute{University of Technology Sydney \\ UTS Business School}
+\date{\today}

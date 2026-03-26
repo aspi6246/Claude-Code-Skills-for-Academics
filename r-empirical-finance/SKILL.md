@@ -14,7 +14,7 @@ description: >
 
 Always prefer these packages unless the user specifies otherwise:
 
-- **Data wrangling:** `data.table` (never `dplyr` or tidyverse)
+- **Data wrangling:** `dplyr` or tidyverse (only `data.table` when required)
 - **Regressions:** `fixest` (`feols`, `feglm`) — never `lm()` for panel data
 - **Large data I/O:** `arrow` for Parquet files; never `read.csv()` for large data
 - **Plotting:** `ggplot2` with clean minimal themes

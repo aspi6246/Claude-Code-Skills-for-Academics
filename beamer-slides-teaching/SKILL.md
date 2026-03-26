@@ -1,10 +1,9 @@
 ---
-name: beamer-slides
+name: beamer-slides-teaching
 description: >
-  Generate LaTeX Beamer slide decks using the UTS house style and conventions.
+  Generate LaTeX Beamer slide decks using my defined style and conventions.
   Use this skill whenever the user asks to create slides, a presentation,
-  a lecture deck, or Beamer content — including for teaching materials,
-  brownbag talks, conference presentations, or anything involving .tex slides.
+  a lecture deck, or Beamer content — for teaching.
 ---
 
 # Beamer Slide Generation — UTS House Style

@@ -175,3 +175,9 @@ with a recommendation must:
 - Avoid "all of the above" / "none of the above"
 - Place the answer on the slide but consider using `\only<2>` overlay
   to reveal it on click
+
+## Slide design philosophy
+
+Before generating any slide deck, read `references/slide-rhetoric.md` for
+principles on narrative structure, information hierarchy, and slide design.
+Apply these principles to every deck.

@@ -518,31 +518,6 @@ If you can't answer these questions clearly, you're not ready.
 
 ---
 
-## Conclusion: The Meta-Point
-
-This document is long. A deck on this topic would be short.
-
-That's the point.
-
-Writing *about* deck rhetoric requires explanation, nuance, and elaboration. *Practicing* deck rhetoric requires compression, selection, and restraint.
-
-The best deck on deck rhetoric would have perhaps twelve slides:
-1. Title
-2. The fundamental insight (decks are performance, not documents)
-3. Law 1: Beauty is function
-4. Law 2: Cognitive load is the enemy
-5. Law 3: The slide serves the spoken word
-6. The Aristotelian triad (one visual)
-7. The narrative arc (one visual)
-8. The Devil's Advocate
-9. One idea per slide
-10. Common failure (example)
-11. The preparation sequence
-12. Your takeaway: What will they remember?
-
-Everything else in this document would be spoken, not shown.
-
-That's the theory. Now apply it.
 
 ---
 

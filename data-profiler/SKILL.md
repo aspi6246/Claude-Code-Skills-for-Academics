@@ -26,7 +26,7 @@ analysis.
 
 ## Critical Rules
 
-- Use `data.table` for all data manipulation (never tidyverse)
+- Use `tidyverse` for all data manipulation (only `data.table` for large datasets)
 - Use `arrow` for reading Parquet files, `fread()` for CSV
 - All R code should be shown to the user and explained
 - Do NOT modify the raw data files — profiling is read-only

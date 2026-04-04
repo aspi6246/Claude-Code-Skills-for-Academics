@@ -23,10 +23,14 @@ git pull
 
 | Skill | Purpose |
 |---|---|
+| `r-empirical-finance` | R code conventions for panel data, causal inference, and data pipelines (data.table, fixest, arrow) |
+| `beamer-slides-teaching` | LaTeX Beamer slide generation with pdfLaTeX and UTS house style |
+| `beamer-check` | Compile → inspect → fix → verify audit loop for Beamer decks |
+| `code-audit` | Two-phase code review for research scripts, with safeguards for licensed data |
+| `data-profiler` | Systematic dataset profiling protocol — unit of observation, panel structure, data quality |
+| `paper-editor` | Seven-audit editorial review protocol for academic finance working papers |
+| `paper-review` | Structured summary template for academic papers |
 | `skill-writing-guide` | Reference for writing and improving skills |
-| `r-empirical-finance` | R code conventions for panel data / causal inference |
-| `beamer-slides` | LaTeX Beamer slide generation with UTS house style |
-| `code-audit` | Two-phase code review for research scripts |
 
 ## Adding a new skill
 
@@ -38,6 +42,6 @@ git pull
 
 ## Notes
 
-- Skills are plain Markdown, not LaTeX — don't try to compile them
+- Skills are plain Markdown
 - The `description` field is the most important line in any skill — Claude uses it to decide whether to load the skill
-- GitHub is the cloud backup; this repo should NOT live inside Dropbox
+- GitHub is the cloud backup

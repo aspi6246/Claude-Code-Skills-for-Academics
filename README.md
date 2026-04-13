@@ -31,6 +31,7 @@ git pull
 | `paper-editor` | Seven-audit editorial review protocol for academic finance working papers |
 | `paper-review` | Structured summary template for academic papers |
 | `skill-writing-guide` | Reference for writing and improving skills |
+| `pinboard` | Taking notes/reminders |
 
 ## Adding a new skill
 

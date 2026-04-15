@@ -26,12 +26,12 @@ Nothing else. No summary, no bullet points, no follow-up questions.
 ## Step 1: Session Log
 
 Create or append to a session log file at:
-`[project_root]/correspondence/session_logs/YYYY-MM-DD.md`
+`[project_root]/code/_Claude Logs/session_logs/YYYY-MM-DD.md`
 
 If multiple sessions occur on the same day, append to the existing file
 with a horizontal rule separator and a timestamp.
 
-Create the `correspondence/session_logs/` directory if it does not exist.
+Create the `code/_Claude Logs/` directory if it does not exist.
 
 ### Session log format
 

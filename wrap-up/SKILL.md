@@ -26,12 +26,12 @@ Nothing else. No summary, no bullet points, no follow-up questions.
 ## Step 1: Session Log
 
 Create or append to a session log file at:
-`[project_root]/code/_Claude Logs/session_logs/YYYY-MM-DD.md`
+`[project_root]/Code/_Claude Session Logs/YYYY-MM-DD.md`
 
 If multiple sessions occur on the same day, append to the existing file
 with a horizontal rule separator and a timestamp.
 
-Create the `code/_Claude Logs/` directory if it does not exist.
+Create the `Code/_Claude Session Logs/` directory if it does not exist.
 
 ### Session log format
 
@@ -138,21 +138,63 @@ Add each item to the appropriate category in `PINBOARD.md`:
 Auto-categorise into To-Do, Papers, Ideas, or Data Issues based on
 content. If nothing is outstanding, skip this step silently.
 
-## Step 6: Git Commit
+## Step 6: Git Commit (session-scoped)
 
-Check the Git status of the project. If there are uncommitted changes
-(staged or unstaged):
+Check the Git status of the project. If it is not a Git repository, or
+there are no uncommitted changes, skip this step silently.
 
-1. Stage all changes: `git add .`
-2. Commit with the message: `wrap-up: end of session YYYY-MM-DD`
-3. Do NOT push — just commit locally
+Otherwise, stage **only files actually touched during this session** —
+never use `git add .` or `git add -A`. Orphan uncommitted changes from
+prior sessions or external tools must be surfaced to the user, not
+silently swept into the wrap-up commit.
 
-If the project is not a Git repository, or if there are no changes to
-commit, skip this step silently.
+### 6.1 Detect uncommitted changes
 
-If the commit fails for any reason (merge conflict, hooks, etc.),
-note the failure in the session log under "Problems encountered" but
-do not ask the user about it — just proceed with the wrap-up.
+Run `git status --porcelain` to list all modified, staged, and untracked
+files.
+
+### 6.2 Build session-touched list
+
+Review the current session's tool-call history and collect every file
+path actually written to disk via `Edit`, `Write`, `NotebookEdit`, or
+`Bash` commands that create/modify files.
+
+### 6.3 Classify
+
+For each uncommitted file:
+- **Session change** — appears in the session-touched list.
+- **Orphan** — does not appear in the session-touched list.
+
+### 6.4 Handle orphans explicitly
+
+If any orphans exist, ask the user once:
+
+> The following files have uncommitted changes but were not modified
+> during this session: [list]. Include them in the wrap-up commit, or
+> leave them for later?
+
+Default to excluding orphans if the answer is ambiguous or absent.
+
+### 6.5 Stage only confirmed files
+
+Stage session-touched files (and any orphans the user explicitly
+confirmed) by name:
+
+```
+git add -- "path/one" "path/two"
+```
+
+Do **not** use `git add .` or `git add -A`. If nothing remains to stage
+after orphan exclusion, skip the commit silently.
+
+### 6.6 Commit
+
+Commit with the message: `wrap-up: end of session YYYY-MM-DD`.
+Do NOT push — just commit locally.
+
+If the commit fails for any reason (merge conflict, hooks, etc.), note
+the failure in the session log under "Problems encountered" but do not
+ask the user about it — just proceed with the wrap-up.
 
 ---
 
@@ -166,7 +208,7 @@ do not ask the user about it — just proceed with the wrap-up.
   PINBOARD.md, or memory, do not add it again.
 - **Do not modify author code or data.** This skill only touches
   documentation and project management files (plus the git commit).
-- **Create directories as needed.** If `correspondence/session_logs/`
+- **Create directories as needed.** If `Code/_Claude Session Logs/`
   does not exist, create it. Do not ask.
 - **Respect existing content.** Append to files, do not overwrite them.
   Read before writing.

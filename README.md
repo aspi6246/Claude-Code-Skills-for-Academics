@@ -4,10 +4,25 @@ Personal skills repo for academic empirical finance research workflows.
 
 ## Setup
 
+### Fresh install (empty `~/.claude/skills/`)
+
 Clone this repo directly into the Claude Code global skills directory:
 
 ```powershell
-git clone https://github.com/aspi6246/claude-skills.git "$HOME\.claude\skills"
+git clone https://github.com/aspi6246/Claude-Code-Skills-for-Academics.git "$HOME\.claude\skills"
+```
+
+### Selective install (skills directory already exists)
+
+If `~/.claude/skills/` already contains other skills, do **not** clone
+on top of it — it will fail. Instead, clone into a temporary location
+and copy only the skills you want:
+
+```powershell
+git clone https://github.com/aspi6246/Claude-Code-Skills-for-Academics.git "$HOME\claude-skills-tmp"
+Copy-Item "$HOME\claude-skills-tmp\wrap-up" "$HOME\.claude\skills\" -Recurse
+# repeat for each desired skill, then remove the temp dir
+Remove-Item "$HOME\claude-skills-tmp" -Recurse -Force
 ```
 
 ## Updating

@@ -46,6 +46,7 @@ git pull
 | `paper-editor` | Seven-audit editorial review protocol for academic finance working papers |
 | `paper-review` | Structured summary template for academic papers |
 | `canvas-lms-api` | Canvas LMS REST API conventions for course sync scripts (modules, pages, file uploads) |
+| `spin-up` | Start-of-session briefing — git state, last log, pinboard, project state synthesis |
 | `wrap-up` | End-of-session cleanup — log, memory, pinboard, session-scoped git commit |
 | `skill-writing-guide` | Reference for writing and improving skills |
 | `pinboard` | Taking notes/reminders |

@@ -16,9 +16,9 @@ A comprehensive reference for building Python scripts that interact with the Can
 
 This skill supports building a course content sync system for **Ethics and Governance** at UTS. The system reads HTML content files and a course structure config from a local folder, then syncs everything to Canvas via the API.
 
-**Local project folder:** `C:\Users\Alessandro\Documents\CanvasDev-EthicsGov\`
+**Local project folder:** `~/path/to/CanvasDev-EthicsGov/`
 
-> ⚠️ Update this path to match your actual folder location on your machine.
+> ⚠️ Replace with the actual folder location on your machine.
 
 **Key files:**
 - `config.py` — stores credentials and course IDs (NEVER commit this to GitHub)

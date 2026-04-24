@@ -45,6 +45,8 @@ git pull
 | `data-profiler` | Systematic dataset profiling protocol — unit of observation, panel structure, data quality |
 | `paper-editor` | Seven-audit editorial review protocol for academic finance working papers |
 | `paper-review` | Structured summary template for academic papers |
+| `canvas-lms-api` | Canvas LMS REST API conventions for course sync scripts (modules, pages, file uploads) |
+| `wrap-up` | End-of-session cleanup — log, memory, pinboard, session-scoped git commit |
 | `skill-writing-guide` | Reference for writing and improving skills |
 | `pinboard` | Taking notes/reminders |
 

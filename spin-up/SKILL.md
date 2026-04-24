@@ -3,8 +3,8 @@ name: spin-up
 description: >
   Start-of-session orientation routine that briefs Claude on the current
   state of a project before work begins. Use this skill when the user
-  says "spin up", "spin it up", "let's spin up", "spinning up", "spin
-  up the project", or any variant signalling they want a session kickoff
+  says "spin up", "spin it up", "let's go", "start up", "spin
+  up the project", "punch it chewy", or any variant signalling they want a session kickoff
   briefing. Performs: git status check (unpushed commits, remote
   divergence), CLAUDE.md and README read, most-recent session log read
   (focusing on "Where we left off"), PINBOARD.md open items, and a
@@ -61,7 +61,6 @@ locations in order:
 - The path specified in `CLAUDE.md`, if any.
 - `Claude Logs/`
 - `Code/_Claude Session Logs/`
-- `correspondence/session_logs/` (legacy)
 
 Find the most recently-dated file and read it. Pay particular attention
 to:

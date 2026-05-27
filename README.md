@@ -49,6 +49,7 @@ git pull
 | `canvas-lms-api` | Canvas LMS REST API conventions for course sync scripts (modules, pages, file uploads) |
 | `spin-up` | Start-of-session briefing — git state, last log, pinboard, project state synthesis |
 | `wrap-up` | End-of-session cleanup — log, memory, pinboard, session-scoped git commit |
+| `script-registry` | Track R Markdown script dependencies, inputs/outputs, and paper targets via per-script YAML metadata |
 | `skill-writing-guide` | Reference for writing and improving skills |
 | `pinboard` | Quick-capture pinboard for to-dos, paper leads, data issues, and ideas |
 

@@ -45,11 +45,12 @@ git pull
 | `data-profiler` | Systematic dataset profiling protocol — unit of observation, panel structure, data quality |
 | `paper-editor` | Seven-audit editorial review protocol for academic finance working papers |
 | `paper-review` | Structured summary template for academic papers |
+| `edmans-audit` | Pre-submission paper audit against Edmans' (2025) three-part framework: Contribution, Execution, Exposition |
 | `canvas-lms-api` | Canvas LMS REST API conventions for course sync scripts (modules, pages, file uploads) |
 | `spin-up` | Start-of-session briefing — git state, last log, pinboard, project state synthesis |
 | `wrap-up` | End-of-session cleanup — log, memory, pinboard, session-scoped git commit |
 | `skill-writing-guide` | Reference for writing and improving skills |
-| `pinboard` | Taking notes/reminders |
+| `pinboard` | Quick-capture pinboard for to-dos, paper leads, data issues, and ideas |
 
 ## Adding a new skill
 

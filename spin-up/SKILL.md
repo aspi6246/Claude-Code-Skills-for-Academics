@@ -7,8 +7,8 @@ description: >
   up the project", "punch it chewy", or any variant signalling they want a session kickoff
   briefing. Performs: git status check (unpushed commits, remote
   divergence), CLAUDE.md and README read, most-recent session log read
-  (focusing on "Where we left off"), PINBOARD.md open items, and a
-  short synthesis of project state. Ends by asking what to work on today.
+  (focusing on "Where we left off"), PINBOARD.md open items, GLOSSARY.md
+  load, and a short synthesis of project state. Ends by asking what to work on today.
 ---
 
 # Spin-Up: Start-of-Session Orientation
@@ -79,7 +79,29 @@ urgent.
 
 If no pinboard exists, skip.
 
-## Step 5: Synthesise the briefing
+## Step 5: Load the glossary
+
+If `GLOSSARY.md` exists at the project root, load it **adaptively** — the goal is to
+activate command-phrases without pulling the whole file into context every session:
+
+1. Count entries cheaply (`Grep -c "^- "`). **If under ~25, just read the file
+   whole** — the cost is trivial and the lazy split isn't worth it.
+2. **Otherwise, load lazily:**
+   - Read only the top of the file through the `## Definitions` header — that is the
+     **Command-Phrases** section (kept first for exactly this reason). These must be
+     active for the session (e.g. "push" → commit and push), since the bare phrase
+     won't trigger the `glossary` skill on its own.
+   - Grep the **headwords only** (the `**bold**` terms) to load the *term list* for
+     Definitions/Abbreviations — names without glosses. Read a full definition on
+     demand later, when that term actually comes up.
+3. Load silently; do NOT dump entries into the briefing. Report a one-line count.
+4. **Flag if large:** if the glossary exceeds ~50 entries or ~15 command-phrases,
+   note it and suggest a prune.
+
+If no glossary exists, skip silently. The `/glossary` skill owns this file — adding,
+editing, the behavioral rules for command-phrases, and pruning.
+
+## Step 6: Synthesise the briefing
 
 Present a briefing in approximately this format:
 
@@ -99,6 +121,8 @@ Present a briefing in approximately this format:
 - Z papers to read
 - W data issues
 
+**Glossary:** N terms loaded, M command-phrases active [or "none yet"]
+
 **Project state:** [1–2 sentences synthesising CLAUDE.md + last log]
 ```
 
@@ -106,7 +130,7 @@ Keep it tight. One scannable screen. Omit sections cleanly if there's
 nothing to report ("No pinboard items outstanding.") rather than
 leaving empty headings.
 
-## Step 6: Ask the question
+## Step 7: Ask the question
 
 End the briefing with exactly:
 

@@ -52,6 +52,7 @@ git pull
 | `script-registry` | Track R Markdown script dependencies, inputs/outputs, and paper targets via per-script YAML metadata |
 | `skill-writing-guide` | Reference for writing and improving skills |
 | `pinboard` | Quick-capture pinboard for to-dos, paper leads, data issues, and ideas |
+| `glossary` | Per-project glossary of definitions, abbreviations, and command-phrases, loaded adaptively at session start |
 
 ## Adding a new skill
 

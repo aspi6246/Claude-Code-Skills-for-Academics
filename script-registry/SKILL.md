@@ -10,11 +10,11 @@ description: Use when creating a new `.Rmd` script in `Code/`, editing the `regi
 
 ## Scope
 
-The builder scans **only** `Code/*.Rmd` (non-recursive, paper-producing scripts).
+The four paper-producing sections cover **only** `Code/*.Rmd` (non-recursive). The builder additionally **indexes** the working `.R` scripts:
+- `Code/_Claude Scripts/*.R` — working helpers (analysis drafts, diagnostics, utilities). Indexed in REGISTRY.md Section 5 (name, last-modified date, purpose from a `# purpose:` header) so past analysis is findable; NOT part of the numbered pipeline. Give each a `# purpose:` header line.
 
-Everything else is out of scope:
-- `Code/_Claude Scripts/` — working `.R` / `.Rmd` helpers. Tracked via session logs and Claude's memory, not the registry.
-- `Code/_Archive/` — retired scripts.
+Out of scope (never scanned):
+- `Code/_Archive/` and `Code/_Claude Scripts/_Archive/` — retired scripts.
 - `Code/_Claude Logs/` — session progress logs.
 - Anything in `Data/`, `Output/`, `Paper/`.
 
@@ -46,12 +46,13 @@ registry:
 
 ## REGISTRY.md structure
 
-The builder produces four sections:
+The builder produces five sections:
 
 1. **Per-script cards** — one section per `Code/*.Rmd`, with Purpose, Paper target, In-paper flag, Last modified, Inputs, and Outputs split into three buckets: Figures, Tables, Processed Data.
 2. **Processed Data — Dependency Graph** — for each intermediate file: which script produces it, and which scripts consume it.
-3. **Drift Warnings** — mismatches between the YAML and the actual I/O calls detected in each script's code. Four categories: undeclared inputs, undeclared outputs, unused inputs, unused outputs. The builder NEVER auto-edits YAML — it flags for human review.
+3. **Drift Warnings** — mismatches between the YAML and the actual I/O calls detected in each script's code. Four categories: undeclared inputs, undeclared outputs, unused inputs, unused outputs. The builder NEVER auto-edits YAML — it flags for human review. (Detection classifies each quoted path by its nearest read/write call: reads include `read_parquet`/`read.csv`/`readRDS`/`read_dta`; writes include `write_parquet`/`write.csv`/`saveRDS`/`ggsave`/`etable`/`writeLines`/`sink`. Glob declarations like `dir/*.csv`, and any path referenced elsewhere in the code, are exempt from "unused" warnings.)
 4. **Scripts Without Registry Metadata** — any `Code/*.Rmd` that hasn't been given a `registry:` block yet.
+5. **Claude Working Scripts** — an index of every `Code/_Claude Scripts/*.R` (name, last-modified date, purpose) so a future session can find prior analysis.
 
 ## Workflow
 
@@ -105,3 +106,5 @@ Rule of thumb when writing a new output: if any other script reads this file, pu
 - If a rename or move changes a path, rerun the builder so the dependency graph stays accurate.
 - If two scripts claim the same output, that's a duplication problem — flag it rather than hiding it.
 - Never register scripts that live in `_Archive/`. Archival = deregistration.
+- Give every working `Code/_Claude Scripts/*.R` a `# purpose:` header line so it indexes cleanly (Section 5).
+- Canonical `.Rmd` are decade-numbered (00s data, 10s descriptives, 20s results, 90s non-paper); `Code/00_run_pipeline.R` runs them in order. Promote an approved working `.R` into a numbered `.Rmd`, fill its `registry:` block, then archive the `.R`.

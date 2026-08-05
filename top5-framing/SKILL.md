@@ -16,11 +16,17 @@ description: >
 # Top-5 Framing
 
 Based on Jason Fletcher's case study ("How to Write a Top 5 Paper,"
-*Mentorless Apprentice* Substack, July 2026), comparing two contemporaneous
-NAFTA-mortality papers — his own (landed at *Canadian Journal of Economics*)
-vs. Finkelstein–Notowidigdo–Shi (top-5 trajectory, NYT coverage) — which
-found nearly the same reduced-form result but asked it to do very different
-amounts of work.
+*Mentorless Apprentice* Substack, July 2026—
+<https://jasonmfletcher.substack.com/p/how-to-write-a-top-5-paper-a-case>),
+comparing two contemporaneous NAFTA-mortality papers — his own with
+Noghanibehambari (landed at *Canadian Journal of Economics*) vs. Finkelstein
+and co-authors (top-5 trajectory, NYT coverage) — which found nearly the same
+reduced-form result but asked it to do very different amounts of work.
+
+Before running a **full-draft review**, read
+`references/fletcher_case_study.md` — it scores both papers against all six
+tests and shows which fixes cascade. Skip it for quick abstract or intro
+reframes.
 
 Core insight: **the credibility of the estimate is rarely the binding
 constraint; the generality of the claim is.** Evidence doesn't announce its

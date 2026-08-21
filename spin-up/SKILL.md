@@ -8,7 +8,8 @@ description: >
   briefing. Performs: git status check (unpushed commits, remote
   divergence), CLAUDE.md and README read, most-recent session log read
   (focusing on "Where we left off"), PINBOARD.md open items, GLOSSARY.md
-  load, and a short synthesis of project state. Ends by asking what to work on today.
+  load, the active output style, and a short synthesis of project state.
+  Ends by asking what to work on today.
 ---
 
 # Spin-Up: Start-of-Session Orientation
@@ -101,7 +102,41 @@ activate command-phrases without pulling the whole file into context every sessi
 If no glossary exists, skip silently. The `/glossary` skill owns this file — adding,
 editing, the behavioral rules for command-phrases, and pruning.
 
-## Step 6: Synthesise the briefing
+## Step 6: Check the active output style
+
+Report which output style the session is running under, so the user knows
+why responses are shaped the way they are.
+
+Resolve it the way Claude Code does — the first file that sets
+`outputStyle` wins:
+
+1. `<project>/.claude/settings.local.json`
+2. `<project>/.claude/settings.json`
+3. `~/.claude/settings.json`
+
+If none of them sets it, the style is **Default**.
+
+If a custom style is named, confirm it actually exists: look in
+`<project>/.claude/output-styles/` then `~/.claude/output-styles/`, and
+match on the `name:` in the file's frontmatter (falling back to the
+filename when there is no `name:`). If nothing matches, flag it — the
+setting is silently doing nothing.
+
+Two things to watch for:
+
+- **Stale setting.** The output style is baked into the system prompt at
+  session start. If the settings file was edited after this session
+  began, the file says one thing and the session is running another. If
+  your own instructions tell you a different style is loaded, say so and
+  note that it needs `/clear` to take effect.
+- **Plugin override.** An enabled plugin shipping a style with
+  `force-for-plugin: true` overrides the `outputStyle` setting entirely.
+
+Note the mechanism has moved: the standalone `/output-style` command was
+removed in v2.1.91. Styles are now set via `/config` → **Output style**
+in the terminal, or by editing `outputStyle` in a settings file.
+
+## Step 7: Synthesise the briefing
 
 Present a briefing in approximately this format:
 
@@ -123,6 +158,9 @@ Present a briefing in approximately this format:
 
 **Glossary:** N terms loaded, M command-phrases active [or "none yet"]
 
+**Output style:** `Name` (custom / built-in, set in `path/to/settings.json`)
+[or "Default"]
+
 **Project state:** [1–2 sentences synthesising CLAUDE.md + last log]
 ```
 
@@ -130,7 +168,7 @@ Keep it tight. One scannable screen. Omit sections cleanly if there's
 nothing to report ("No pinboard items outstanding.") rather than
 leaving empty headings.
 
-## Step 7: Ask the question
+## Step 8: Ask the question
 
 End the briefing with exactly:
 
@@ -144,7 +182,8 @@ above until the user answers.
 ## Important Rules
 
 - **Read-only.** Spin-up never writes files, never pushes, never pulls.
-  It surfaces state and waits.
+  It surfaces state and waits. This includes the output style — report
+  which one is active, never change it.
 - **Do not create the session log.** That is `wrap-up`'s responsibility
   at end of session. Spin-up only reads prior logs.
 - **Do not act on findings.** If there are unpushed commits, a dirty

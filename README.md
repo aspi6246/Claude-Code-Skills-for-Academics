@@ -56,6 +56,23 @@ git pull
 | `glossary` | Per-project glossary of definitions, abbreviations, and command-phrases, loaded adaptively at session start |
 | `wtf` | Type "wtf" to get the previous response again in ASD-STE100 Simplified Technical English — jargon out, technical names kept |
 
+## Output styles
+
+The `output-styles/` folder holds copies of my Claude Code output styles.
+They are **not skills** and Claude Code does not load them from this repo —
+they are kept here so one repo holds the whole setup. A skill loads for a
+specific task; an output style changes role, tone, and response format for
+every turn of a session.
+
+| File | Name | Purpose |
+|---|---|---|
+| `output-styles/eli5.md` | `ELI5` | Plain language for the end of a long day — short sentences, at most two options with a recommendation |
+| `output-styles/phdadvisor.md` | `PhDAdvisor` | Short, sharp intuition for a 2nd-year finance PhD — intuition, then formalism, then the catch |
+
+Install and activation instructions are in
+[`output-styles/README.md`](output-styles/README.md). These are copies; the
+live files live in `~/.claude/output-styles/` and do not sync automatically.
+
 ## Adding a new skill
 
 1. Create a new folder with a descriptive name

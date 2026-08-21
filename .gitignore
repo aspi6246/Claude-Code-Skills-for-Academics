@@ -20,3 +20,17 @@ desktop.ini
 *.synctex.gz
 *.fdb_latexmk
 *.fls
+
+# Cloudflare skills — installed tooling, not authored here.
+# Reinstall them rather than cloning them; this repo is only my own skills.
+agents-sdk/
+cloudflare/
+cloudflare-email-service/
+cloudflare-one/
+cloudflare-one-migrations/
+durable-objects/
+sandbox-sdk/
+turnstile-spin/
+web-perf/
+workers-best-practices/
+wrangler/

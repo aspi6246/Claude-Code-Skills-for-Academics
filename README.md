@@ -54,6 +54,7 @@ git pull
 | `skill-writing-guide` | Reference for writing and improving skills |
 | `pinboard` | Quick-capture pinboard for to-dos, paper leads, data issues, and ideas |
 | `glossary` | Per-project glossary of definitions, abbreviations, and command-phrases, loaded adaptively at session start |
+| `wtf` | Type "wtf" to get the previous response again in ASD-STE100 Simplified Technical English — jargon out, technical names kept |
 
 ## Adding a new skill
 

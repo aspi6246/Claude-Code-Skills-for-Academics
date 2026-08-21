@@ -2,6 +2,26 @@
 
 Personal skills repo for academic empirical finance research workflows.
 
+## Repo layout
+
+```
+~/.claude/skills/
+├── <skill-name>/       one folder per skill, each with a SKILL.md
+├── output-styles/      copies of my Claude Code output styles
+├── presentations/      talks given about this repo
+└── README.md
+```
+
+**Skill folders have to stay at the top level.** Claude Code discovers
+personal skills at exactly `~/.claude/skills/<skill-name>/SKILL.md` and does
+not look any deeper, so the skills cannot be tidied into a `skills/`
+subfolder — they would silently stop loading. (Nested `.claude/skills/`
+directories are supported inside a project, but that is a monorepo feature
+and does not apply here.)
+
+`output-styles/` and `presentations/` are safe as siblings: a folder with no
+`SKILL.md` in it is ignored by skill discovery.
+
 ## Setup
 
 ### Fresh install (empty `~/.claude/skills/`)
@@ -72,6 +92,16 @@ every turn of a session.
 Install and activation instructions are in
 [`output-styles/README.md`](output-styles/README.md). These are copies; the
 live files live in `~/.claude/output-styles/` and do not sync automatically.
+
+## Presentations
+
+`presentations/` holds talks given about this repo. Currently:
+
+- **Claude Code Skills for Academic Researchers — A Practical Introduction**
+  (UTS Finance Department Brownbag, March 2026, 28 slides)
+
+Slides only; the Beamer sources live elsewhere. See
+[`presentations/README.md`](presentations/README.md).
 
 ## Adding a new skill
 
